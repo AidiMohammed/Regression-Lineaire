@@ -14,6 +14,17 @@ using namespace std;
 
 void getDataFromFile(string filPath, vector<vector<float>> &features,vector<float> &targets)
 {
+	/*
+	* this method which allows to recover the data from a file and the file must be of a format (X = feateurs Y = Targets)
+	*   +----+----+----+----+----+----+
+	*	| X1 | X2 | X3 |... | Xn |  Y |
+	*   +----+----+----+----+----+----+
+	*   |0.1 |0.5 |0.8 |... |0.5 |0.8 |
+	*                .
+	*		 	     .
+	*				 .
+	*	|0.3 |0.7 |1.8 |... |9.5 |8.8 |
+	*/
 
 	FILE* file = NULL;
 	file = fopen(filPath.c_str(), "r");
@@ -88,10 +99,6 @@ void showTargets(vector<float> targets)
 
 int main()
 {
-	
-	int caracterActuel = 0;
-	float RowDataSet[10] = { 0 };
-
 	float alpha = 0.000001;
 
 	vector<vector<float>> features(0,vector<float> (0));
@@ -101,7 +108,6 @@ int main()
 	vector<float> prediction;
 
 	getDataFromFile("data-test.txt",features,targets);
-
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage

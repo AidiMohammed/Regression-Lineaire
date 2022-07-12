@@ -214,7 +214,7 @@ float linearModel(const vector<float> inputs,vector<float> &thetas)
 
 float ploynomialeMode(const vector<float> inpusts, vector<float> &thetas)
 {
-
+	return 0.0;
 }
 
 float costFunction(const vector<vector<float>> features, const vector<float> targets, vector<float> &thetas)
@@ -258,9 +258,9 @@ int main()
 
 	//testcolor();
 
-	if (getDataFromFile("DataLR_HighNextBar.data", features, targets))
+	if (getDataFromFile("data-test.txt", features, targets))
 	{
-		float iterations = 300;
+		float iterations = 3500;
 
 		for (size_t i = 0; i < (size_t)iterations; i++)
 		{
@@ -274,7 +274,7 @@ int main()
 			thetasUpdate = gradientDescent(features, targets, thetas);
 
 			for (size_t i = 0; i < thetas.size(); i++) 
-				thetas.at(i) = thetas.at(i) - 0.0000001 * thetasUpdate.at(i);
+				thetas.at(i) = thetas.at(i) - 0.0005 * thetasUpdate.at(i);
 
 			float progresion = 100 + (i+1 - iterations) / iterations * 100;
 
